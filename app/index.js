@@ -1,7 +1,5 @@
 // app/index.js
 
-const hello = require("./hello");
-
 const express = require("express");
 const app = express();
 
@@ -15,11 +13,10 @@ app.use((request, response, next) => {
   next();
 });
 
-app.get("/", (request, response) => {
+app.get("/node", (request, response) => {
   response.json({
     chance: request.chance
   });
-  response.send(hello.sayHello("World"));
 });
 
 app.listen(8080);
