@@ -1,6 +1,6 @@
 // app/index.js
 
-var hello = require("./hello");
+const hello = require("./hello");
 
 var name = "world";
 
