@@ -13,7 +13,7 @@ app.use((request, response, next) => {
   next();
 });
 
-app.get("/node", (request, response) => {
+app.get("/node/hello", (request, response) => {
   response.json({
     chance: request.chance
   });
