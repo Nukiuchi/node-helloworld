@@ -2,8 +2,24 @@
 
 const hello = require("./hello");
 
-var name = "world";
+const express = require("express");
+const app = express();
 
-var out = hello.sayHello(name);
+app.use((request, response, next) => {
+  console.log(request.headers);
+  next();
+});
 
-console.log(out);
+app.use((request, response, next) => {
+  request.chance = Math.random();
+  next();
+});
+
+app.get("/", (request, response) => {
+  response.json({
+    chance: request.chance
+  });
+  response.send(hello.sayHello("World"));
+});
+
+app.listen(8080);
